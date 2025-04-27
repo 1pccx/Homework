@@ -3,7 +3,7 @@
 作業一
 
 ## 解題說明
-本題要求實現 Insertion Sort, Quick Sort, Merge Sort, Heap Sort 的 worst-time criterion 跟 average runtimes
+本題要求實現 Insertion Sort, Quick Sort, Merge Sort, Heap Sort,Composite Sort 的 worst-time criterion 跟 average runtimes
 
 ### 解題策略
 
@@ -12,3 +12,8 @@
 
 
 ## 效能分析
+
+
+## 測試與驗證
+
+

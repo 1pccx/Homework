@@ -44,7 +44,8 @@
 5. Composite Sort 可以動態選擇最適合的排序方法，對於不同類型的資料具有較高的靈活性和效率。
 
 ## 測試與驗證
-Worst-case
+
+### **Worst-case**
 
 | n | Insertion Sort (µs) | Quick Sort (µs) | Merge Sort (µs) | Heap Sort (µs) |
 |---------------|---------------|----------------|--------------|--------------|
@@ -57,7 +58,7 @@ Worst-case
 
 ![worst-case](https://github.com/1pccx/HW/blob/main/worst-case.jpg)
 
-Average-case
+### **Average-case**
 
 | n | Insertion Sort (µs) | Quick Sort (µs) | Merge Sort (µs) | Heap Sort (µs) |
 |---------------|---------------|----------------|-------------|---------------|
@@ -71,7 +72,7 @@ Average-case
 
 ![average-case]()
 
-Memory Usage
+### **Memory Usage**
 
 | n | Insertion Sort (KB) | Quick Sort (KB) | Merge Sort (KB) | Heap Sort (KB) |
 |---------------|---------------|---------------|--------------|---------------|

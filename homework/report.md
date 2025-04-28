@@ -56,7 +56,7 @@
 | 4000 | 454425 | 2400.68 | 2907.39 | 9914.54 |
 | 5000 | 699260 | 3011.2 | 3532.85 | 12650.8 |
 
-![worst-case](https://github.com/1pccx/HW/blob/main/worst-case.jpg)
+![worst-case](https://github.com/1pccx/HW/blob/main/worst-case.png)
 
 ### **Average-case**
 

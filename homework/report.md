@@ -70,7 +70,7 @@
 | 5000 | 406155 | 4265.37 | 5617.22 | 14692 |
 
 
-![average-case]()
+![average-case](https://github.com/1pccx/HW/blob/main/average_case.png)
 
 ### **Memory Usage**
 

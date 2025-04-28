@@ -46,8 +46,15 @@
 ## 測試與驗證
 Worst-case
 
-![worst-case]()
+![worst-case](https://github.com/1pccx/HW/blob/main/worst-case.jpg)
 
+Average-case
+
+![average-case]()
+
+Memory Usage
+
+![memory usage]()
 ## 申論及開發報告
 
 

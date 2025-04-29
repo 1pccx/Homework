@@ -3,7 +3,7 @@
 作業一
 
 ## 解題說明
-本題要求實現 Insertion Sort, Quick Sort, Merge Sort, Heap Sort,Composite Sort
+本題要求實現 Insertion Sort, Quick Sort, Merge Sort, Heap Sort
 
 要求的重點包括：
 

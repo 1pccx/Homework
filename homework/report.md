@@ -305,8 +305,6 @@ int main() {
 ```
 
 
-
-
 ## 效能分析
 
 | 演算法 | worst-case | average-case | 空間複雜度 |
@@ -329,34 +327,35 @@ int main() {
 
 ## 測試與驗證
 
-### **Worst-case**
+P.S. 表格 <mark style="color:red;">註記</mark> 為最快執行時間
+
+### Worst-case
 
 | n | Insertion Sort (µs) | Quick Sort (µs) | Merge Sort (µs) | Heap Sort (µs) |
 |---------------|---------------|----------------|--------------|--------------|
-| 500 | 5451 | 14341 | 8845 | 3015 |
-| 1000 | 52586 | 43110 | 22193 | 6599 |
-| 2000 | 191947 | 165673 | 42206 | 14690 |
-| 3000 | 253646 | 460435 | 70955 | 24031 |
-| 4000 | 866550 | 1024925 | 77897 | 34525 |
-| 5000 | 718773 | 3363906 | 98356 | 43328 |
+| 500 | 5451 | 14341 | 8845 | <mark style="color:red;"> 3015 </mark>  |
+| 1000 | 52586 | 43110 | 22193 | <mark style="color:red;"> 6599 </mark> |
+| 2000 | 191947 | 165673 | 42206 | <mark style="color:red;"> 14690 </mark> |
+| 3000 | 253646 | 460435 | 70955 | <mark style="color:red;"> 24031 </mark> |
+| 4000 | 866550 | 1024925 | 77897 | <mark style="color:red;"> 34525 </mark> |
+| 5000 | 718773 | 3363906 | 98356 | <mark style="color:red;"> 43328 </mark> |
 
 ![worst-case](https://github.com/1pccx/HW/blob/main/worst_case.png)
 
-### **Average-case**
+### Average-case
 
 | n | Insertion Sort (µs) | Quick Sort (µs) | Merge Sort (µs) | Heap Sort (µs) |
 |---------------|---------------|----------------|-------------|---------------|
-| 500 | 3504.4 | 1753.8 | 8681.8 | 2795.4 |
-| 1000 | 16029.2 | 3299 | 18609.4 | 6278.2 | 
-| 2000 | 89841.6 | 5004.2 | 36445 | 13804.6 |
-| 3000 | 138060 | 9380.8 | 59122.2 | 22400 |
-| 4000 | 268474 | 20875.2 | 71296.8 | 31886 |
-| 5000 | 379469 | 45393.2 | 93194.8 | 41111.4 |
-
+| 500 | 3504.4 | <mark style="color:red;"> 1753.8 </mark> | 8681.8 | 2795.4 || 500 | 3504.4 |  1753.8  | 8681.8 | 2795.4 |
+| 1000 | 16029.2 | <mark style="color:red;"> 3299 </mark> | 18609.4 | 6278.2 | 
+| 2000 | 89841.6 | <mark style="color:red;"> 5004.2 </mark> | 36445 | 13804.6 |
+| 3000 | 138060 | <mark style="color:red;"> 9380.8 </mark> | 59122.2 | 22400 || 3000 | 138060 |  9380.8  | 59122.2 | 22400 |
+| 4000 | 268474 | <mark style="color:red;"> 20875.2 </mark> | 71296.8 | 31886 |
+| 5000 | 379469 | 45393.2 | 93194.8 | <mark style="color:red;"> 41111.4 </mark> |
 
 ![average-case](https://github.com/1pccx/HW/blob/main/average_case.png)
 
-### **Memory Usage**
+### Memory Usage
 
 | n | Insertion Sort (Bytes) | Quick Sort (Bytes) | Merge Sort (Bytes) | Heap Sort (Bytes) |
 |---------------|---------------|---------------|--------------|---------------|
@@ -366,6 +365,71 @@ int main() {
 | 3000 | 12000 | 12000 | 12000 | 12000 |
 | 4000 | 16000 | 16000 | 16000 | 16000 |
 | 5000 | 20000 | 20000 | 20000 | 20000 |
+
+### 圖表生成程式
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 假設你已經讀取了 CSV 檔案並且它的資料已經存在於 df 中
+df = pd.read_csv('2sorting_algorithms_comparison.csv')
+
+# 確認我們有正確的欄位
+print(df.columns)
+
+# 第一張圖：展示每個算法的平均時間
+plt.figure(figsize=(12, 8))  # 增加圖表的大小
+for algo in df['Algorithm'].unique():
+    algo_data = df[df['Algorithm'] == algo]
+    plt.plot(algo_data['Size'], algo_data['Average Time (microseconds)'], label=algo, marker='o', markersize=6)
+
+# 設置標題和標籤
+plt.title('Average Sorting Time (microseconds) by Algorithm', fontsize=16)
+plt.xlabel('Array Size', fontsize=14)
+plt.ylabel('Average Time (microseconds)', fontsize=14)
+plt.legend(title='Algorithm', loc='upper left')
+plt.grid(True)
+
+# 設置Y軸範圍，縮放讓圖表更明顯
+#plt.yscale('log')  # 使用對數縮放，這樣時間差異更為突出
+plt.tight_layout()
+
+# 顯示圖表
+plt.show()
+
+# 第二張圖：展示每個算法的最壞情況時間
+plt.figure(figsize=(12, 8))  # 增加圖表的大小
+for algo in df['Algorithm'].unique():
+    algo_data = df[df['Algorithm'] == algo]
+    plt.plot(algo_data['Size'], algo_data['Worst Time (microseconds)'], label=algo, marker='x', markersize=6)
+
+# 設置標題和標籤
+plt.title('Worst Sorting Time (microseconds) by Algorithm', fontsize=16)
+plt.xlabel('Array Size', fontsize=14)
+plt.ylabel('Worst Time (microseconds)', fontsize=14)
+plt.legend(title='Algorithm', loc='upper left')
+plt.grid(True)
+
+# 設置Y軸範圍，縮放讓圖表更明顯
+#plt.yscale('log')  # 使用對數縮放
+plt.tight_layout()
+
+# 顯示圖表
+plt.show()
+```
+
+### 結論
+
+- Insertion Sort 在 Worst-case 時，因時間複雜度為 O(n²)，又隨著數據量增加，執行時間較長，效率較低。
+
+- Quick Sort 是對於大多數情況（尤其是 Average-case ）下最優、最快速的演算法，尤其對小至中型數據集最為有效。
+  
+  然而，在 Worst-case 以及 在 Average-case 可能因選擇固定 pivot 而退化，性能會大幅下降。
+  
+- Merge Sort 是一個穩定的排序算法，適合於數據量較大且對 Worst-case 有要求的情況，但相較於 Quick Sort 和 Heap Sort，它的執行時間略慢。
+
+- Heap Sort 在 Worst-case 和較大數據集下表現穩定，並且在處理較大數據集時，成為最快的排序算法。
 
 
 ## 申論及開發報告
